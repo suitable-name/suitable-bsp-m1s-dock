@@ -1,7 +1,7 @@
 # `m1s-dock-bsp`
 
-[![Crates.io](https://img.shields.io/crates/v/m1s-dock-bsp.svg)](https://crates.io/crates/m1s-dock-bsp)
-[![Documentation](https://docs.rs/m1s-dock-bsp/badge.svg)](https://docs.rs/m1s-dock-bsp)
+[![Crates.io](https://img.shields.io/crates/v/suitable-bsp-m1s-dock.svg)](https://crates.io/crates/suitable-bsp-m1s-dock)
+[![Documentation](https://docs.rs/suitable-bsp-m1s-dock/badge.svg)](https://docs.rs/suitable-bsp-m1s-dock)
 [![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg)](LICENSE)
 
 Production-ready `#![no_std]` **Board Support Package (BSP)** for the **Sipeed M1s Dock** development board, powered by the **Bouffalo Lab BL808** dual-core RISC-V SoC.
