@@ -1,0 +1,66 @@
+[package]
+name = "m1s-dock-bsp"
+version = "0.1.0"
+edition = "2021"
+description = "Board Support Package for the Sipeed M1s Dock (Bouffalo Lab BL808 SoC)"
+
+[dependencies]
+bl808-hal = { path = "../bl808-hal/crates/bl808-hal", default-features = false }
+bl808-pac = { path = "../bl808-hal/bl808-pac", default-features = false }
+embedded-hal = "1.0"
+embedded-hal-nb = "1.0"
+riscv = { version = "0.16.1", features = ["critical-section-single-hart"] }
+riscv-rt = { version = "0.18.0", optional = true }
+critical-section = "1.2"
+nb = "1.1"
+embedded-graphics-core = { version = "0.4", default-features = false, optional = true }
+
+[target.'cfg(any(target_arch = "riscv32", target_arch = "riscv64"))'.dependencies]
+panic-halt = "1.0.0"
+
+[target.'cfg(not(any(target_arch = "riscv32", target_arch = "riscv64")))'.dev-dependencies]
+critical-section = { version = "1.2", features = ["std"] }
+bl808-hal = { path = "../bl808-hal/crates/bl808-hal", features = ["mock"] }
+
+[features]
+default = ["d0", "graphics"]
+d0 = ["bl808-hal/d0", "bl808-pac/d0"]
+m0 = ["bl808-hal/m0", "bl808-pac/m0"]
+rt = ["bl808-hal/rt", "bl808-pac/rt", "dep:riscv-rt"]
+graphics = ["dep:embedded-graphics-core"]
+
+[[example]]
+name = "blinky"
+required-features = ["rt"]
+
+[[example]]
+name = "display_ui"
+required-features = ["rt", "graphics", "d0"]
+
+[[example]]
+name = "touch_draw"
+required-features = ["rt", "graphics", "d0"]
+
+[[example]]
+name = "dual_core_ping"
+required-features = ["rt"]
+
+[[example]]
+name = "audio_record"
+required-features = ["rt"]
+
+[[example]]
+name = "camera_capture"
+required-features = ["rt", "d0"]
+
+[[example]]
+name = "sdcard_storage"
+required-features = ["rt", "m0"]
+
+[[example]]
+name = "button_events"
+required-features = ["rt"]
+
+[[example]]
+name = "m1s_bsp_test"
+required-features = ["rt"]
