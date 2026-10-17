@@ -2,7 +2,7 @@
 #![no_main]
 
 use core::fmt::Write;
-use m1s_dock_bsp::prelude::*;
+use suitable_bsp_m1s_dock::prelude::*;
 use panic_halt as _;
 use riscv_rt::entry;
 

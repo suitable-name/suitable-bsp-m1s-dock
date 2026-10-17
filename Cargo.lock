@@ -15,58 +15,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3ded4057c258ba199e2d26386d3af3780957ecaee6c4ef4041c6b4b8b97c0b06"
 
 [[package]]
-name = "bl808-d0"
-version = "0.1.0"
-dependencies = [
- "critical-section",
- "riscv",
- "riscv-rt",
- "vcell",
-]
-
-[[package]]
-name = "bl808-hal"
-version = "0.1.0"
-dependencies = [
- "bitflags",
- "bl808-pac",
- "critical-section",
- "embedded-hal",
- "embedded-hal-nb",
- "nb",
- "riscv",
-]
-
-[[package]]
-name = "bl808-lp"
-version = "0.1.0"
-dependencies = [
- "critical-section",
- "riscv",
- "riscv-rt",
- "vcell",
-]
-
-[[package]]
-name = "bl808-m0"
-version = "0.1.0"
-dependencies = [
- "critical-section",
- "riscv",
- "riscv-rt",
- "vcell",
-]
-
-[[package]]
-name = "bl808-pac"
-version = "0.1.0"
-dependencies = [
- "bl808-d0",
- "bl808-lp",
- "bl808-m0",
-]
-
-[[package]]
 name = "byteorder"
 version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -102,22 +50,6 @@ checksum = "fba4268c14288c828995299e59b12babdbe170f6c6d73731af1b4648142e8605"
 dependencies = [
  "embedded-hal",
  "nb",
-]
-
-[[package]]
-name = "m1s-dock-bsp"
-version = "0.1.0"
-dependencies = [
- "bl808-hal",
- "bl808-pac",
- "critical-section",
- "embedded-graphics-core",
- "embedded-hal",
- "embedded-hal-nb",
- "nb",
- "panic-halt",
- "riscv",
- "riscv-rt",
 ]
 
 [[package]]
@@ -203,6 +135,84 @@ name = "riscv-types"
 version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d3f2ad9f15a07f4a0e1677124f9120ce7e83ab7e1ca7186af0ca9da529b62e80"
+
+[[package]]
+name = "suitable-bsp-m1s-dock"
+version = "1.0.0"
+dependencies = [
+ "critical-section",
+ "embedded-graphics-core",
+ "embedded-hal",
+ "embedded-hal-nb",
+ "nb",
+ "panic-halt",
+ "riscv",
+ "riscv-rt",
+ "suitable-hal-bl808",
+ "suitable-pac-bl808",
+]
+
+[[package]]
+name = "suitable-hal-bl808"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d465a46b55d9ae924e48c36681744c7e0b042f0d89a2a8ae27ede33531666c0c"
+dependencies = [
+ "bitflags",
+ "critical-section",
+ "embedded-hal",
+ "embedded-hal-nb",
+ "nb",
+ "riscv",
+ "suitable-pac-bl808",
+]
+
+[[package]]
+name = "suitable-pac-bl808"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cd200f3462c57f3be312f1030819119b6ac799aed4fc3c661ad48f26d9e0e5a2"
+dependencies = [
+ "suitable-pac-bl808-d0",
+ "suitable-pac-bl808-lp",
+ "suitable-pac-bl808-m0",
+]
+
+[[package]]
+name = "suitable-pac-bl808-d0"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3ac4c84dce0092a516125dd4422f29e12c28067273d33aadfced79336e138a65"
+dependencies = [
+ "critical-section",
+ "riscv",
+ "riscv-rt",
+ "vcell",
+]
+
+[[package]]
+name = "suitable-pac-bl808-lp"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "56dcc7c51cd150b743585a07c878d5878408b797d63143888251f517ed7f480e"
+dependencies = [
+ "critical-section",
+ "riscv",
+ "riscv-rt",
+ "vcell",
+]
+
+[[package]]
+name = "suitable-pac-bl808-m0"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "87831675cc1ef07ef62d606e8fc53897c49ee125a0add942e4986d9f04e60edf"
+dependencies = [
+ "critical-section",
+ "riscv",
+ "riscv-rt",
+ "vcell",
+]
 
 [[package]]
 name = "syn"

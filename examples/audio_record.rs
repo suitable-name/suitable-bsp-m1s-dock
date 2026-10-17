@@ -1,8 +1,8 @@
 #![no_std]
 #![no_main]
 
-use m1s_dock_bsp::audio::{MicChannel, SampleRate};
-use m1s_dock_bsp::prelude::*;
+use suitable_bsp_m1s_dock::audio::{MicChannel, SampleRate};
+use suitable_bsp_m1s_dock::prelude::*;
 use riscv_rt::entry;
 #[cfg(any(target_arch = "riscv32", target_arch = "riscv64"))]
 use panic_halt as _;

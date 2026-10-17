@@ -11,7 +11,7 @@
 //! # Getting Started
 //!
 //! ```no_run
-//! use m1s_dock_bsp::prelude::*;
+//! use suitable_bsp_m1s_dock::prelude::*;
 //!
 //! // Obtain ownership of the board
 //! let mut board = Board::take().unwrap();

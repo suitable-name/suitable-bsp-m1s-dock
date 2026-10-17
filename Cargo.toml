@@ -1,12 +1,19 @@
 [package]
-name = "m1s-dock-bsp"
-version = "0.1.0"
+name = "suitable-bsp-m1s-dock"
+version = "1.0.0"
 edition = "2021"
+authors = ["Bouffalo Lab Community"]
 description = "Board Support Package for the Sipeed M1s Dock (Bouffalo Lab BL808 SoC)"
+license = "MulanPSL-2.0"
+repository = "https://github.com/suitable-name/suitable-bsp-m1s-dock"
+readme = "README.md"
+keywords = ["embedded", "riscv", "bouffalolab", "bl808", "bsp"]
+categories = ["embedded", "hardware-support", "no-std"]
+include = ["/src/**/*", "/examples/**/*", "/build.rs", "/memory-d0.x", "/memory-m0.x", "/Cargo.toml", "/README.md"]
 
 [dependencies]
-bl808-hal = { path = "../bl808-hal/crates/bl808-hal", default-features = false }
-bl808-pac = { path = "../bl808-hal/bl808-pac", default-features = false }
+bl808-hal = { package = "suitable-hal-bl808", version = "1.0.0", default-features = false }
+bl808-pac = { package = "suitable-pac-bl808", version = "1.0.0", default-features = false }
 embedded-hal = "1.0"
 embedded-hal-nb = "1.0"
 riscv = { version = "0.16.1", features = ["critical-section-single-hart"] }
@@ -20,7 +27,7 @@ panic-halt = "1.0.0"
 
 [target.'cfg(not(any(target_arch = "riscv32", target_arch = "riscv64")))'.dev-dependencies]
 critical-section = { version = "1.2", features = ["std"] }
-bl808-hal = { path = "../bl808-hal/crates/bl808-hal", features = ["mock"] }
+bl808-hal = { package = "suitable-hal-bl808", version = "1.0.0", features = ["mock"] }
 
 [features]
 default = ["d0", "graphics"]

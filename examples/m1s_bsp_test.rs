@@ -1,8 +1,8 @@
 #![no_std]
 #![no_main]
 
-use m1s_dock_bsp::audio::{MicChannel, SampleRate};
-use m1s_dock_bsp::prelude::*;
+use suitable_bsp_m1s_dock::audio::{MicChannel, SampleRate};
+use suitable_bsp_m1s_dock::prelude::*;
 use riscv_rt::entry;
 #[cfg(any(target_arch = "riscv32", target_arch = "riscv64"))]
 use panic_halt as _;
@@ -122,7 +122,7 @@ fn main() -> ! {
     #[cfg(feature = "m0")]
     {
         if let Some(mut sd) = board.take_sd_card() {
-            let mut sec = [0u8; m1s_dock_bsp::storage::SECTOR_SIZE];
+            let mut sec = [0u8; suitable_bsp_m1s_dock::storage::SECTOR_SIZE];
             let _ = sd.read_sector(0, &mut sec);
             writeln!(
                 board.console,
